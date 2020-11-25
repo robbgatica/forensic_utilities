@@ -65,9 +65,9 @@ def parse(file_content, file_name, file_list):
     filepath = os.path.join(os.getcwd(), 'discord_parsed_chat_log_' + datetime.now().strftime('%m_%d_%Y_%H%M') + '.txt')
     with io.open(filepath, 'a+', encoding='utf-8') as f:
         if is_empty(filepath):
-            print(f'Total chat files found: {len(file_list)}', end='\n\n', file=f)   
+            print(f'*** Total chat files found: {len(file_list)} ***', end='\n\n', file=f)   
         print(f'Transcript for {file_name}', file=f)
-        print((len(file_name)+15)*'*', file=f)
+        print((len(file_name)+15)*'=', file=f)
 
         for i, message in enumerate(file_content):
             if 'author' in file_content[i].keys():
