@@ -43,6 +43,7 @@ def main():
     # Make a list of all json files that start with '50' or 'limit'
     for root, dirs, files in os.walk(folder):
             for file in files:
+                # May need to adjust the startswith() arguments as necessary -- some '50' files will throw an error
                 if (file.startswith('50') and file.endswith('.json')) or (file.startswith('limit') and file.endswith('.json')):
                     json_files.append(file)
     
@@ -82,6 +83,7 @@ def parse(file_content, file_name, file_list):
             if 'content' in file_content[i].keys():
                 content = message.get('content')
                 print(f'  Message: {content:<12}', end='\n\n', file=f)
+        f.flush()
 
 if __name__ == '__main__':
     main()
